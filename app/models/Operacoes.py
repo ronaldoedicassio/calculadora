@@ -1,22 +1,23 @@
 class Operacoes:
     
     @staticmethod
-    def somar(a,b):
+    def somar(a, b):
         return a + b
     
     @staticmethod
-    def sub(a,b):
+    def subtrair(a, b):
         return a - b
     
     @staticmethod
-    def mul(a,b):
+    def multiplicar(a, b):
         return a * b
     
     @staticmethod
-    def div(a,b):
+    def dividir(a, b):
         try:
-            if(b != 0):
-                return (a/b)
+            return a / b
         except ZeroDivisionError as e:
             print(f"Erro: {e}")
-    
+            raise ValueError("Divisão por zero não é permitida.")
+
+

@@ -5,6 +5,7 @@ def mostrar_menu():
     print("2 - Subtrair")
     print("3 - Multiplicar")
     print("4 - Dividir")
+    print("5 - Ver Histórico")
     print("0 - Sair")
 
 def obter_valores():
@@ -17,3 +18,11 @@ def mostrar_resultado(resultado):
 
 def mostrar_erro(msg):
     print(f"❌ Erro: {msg}")
+
+def mostrar_historico(historico):
+    print("\n📜 Histórico de operações:")
+    if not historico:
+        print("Nenhuma operação realizada ainda.")
+    else:
+        for i, item in enumerate(historico):
+            print(f"{i+1}. {item['tipo']} {item['a']} e {item['b']} = {item['resultado']}")
