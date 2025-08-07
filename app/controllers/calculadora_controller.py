@@ -1,10 +1,12 @@
 from app.models.Operacoes import Operacoes
 from app.views.interface import obter_valores, mostrar_resultado, mostrar_erro, mostrar_historico
+from app.models.arquivos.manipulador import salvar_historico, carregar_historico
+
 
 class CalculadoraController:
 
     def __init__(self):
-        self.historico = []  # Lista para armazenar operações
+        self.historico = carregar_historico()
 
     def executar_operacao(self, escolha):
         if escolha == "5":
@@ -39,6 +41,7 @@ class CalculadoraController:
 
             # Adicionando à lista de histórico
             self.historico.append(operacao)
+            salvar_historico(self.historico)
 
             mostrar_resultado(resultado)
 
